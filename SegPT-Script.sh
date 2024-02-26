@@ -178,6 +178,7 @@ dos2unix final_segment1_udp.sh
 echo "______________________________________________________________________________________"
 echo ""
 echo "[+] The final PT scripts for segmentation have been generated. check the Final_<File_Name> results."
+ls | grep final_segment1_ 
 echo ""
 echo "[+]  Thanks for using this script."
 
