@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Output file name
-output_file="segment1_tcp.bat"
+output_file="subnets_segment1_tcp.bat"
 
 # Header for the output file
 cat <<EOF > "$output_file"
@@ -40,13 +40,13 @@ EOF
 done < subnet.txt
 
 # Output the final result
-echo "Nmap scripts have been generated in $output_file"
+echo "[+] Nmap scripts have been generated in $output_file"
 
 sleep 5;
 
 echo "______________________________________________________________________________________"
 
-output_file1="segment1_tcp.sh"
+output_file1="subnets_segment1_tcp.sh"
 
 # Header for the output file
 cat <<EOF > "$output_file1"
@@ -74,11 +74,11 @@ while IFS= read -r subnet_ip; do
     
     # Write Nmap script to output file
     if [ "$remove_options" == "y" ]; then
-        cat <<EOF >> "$output_file"
+        cat <<EOF >> "$output_file1"
 nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -oA $output_filename $(remove_suffix) $subnet_ip
 EOF
     else
-        cat <<EOF >> "$output_file"
+        cat <<EOF >> "$output_file1"
 nmap -n -Pn -sS -p- --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA $output_filename $(remove_suffix) $subnet_ip
 EOF
     fi
@@ -86,14 +86,14 @@ EOF
 done < subnet.txt
 
 # Output the final result
-echo "Nmap scripts have been generated in $output_file1"
+echo "[+] Nmap scripts have been generated in $output_file1"
 
 sleep 5;
 
 echo "______________________________________________________________________________________"
 
 
-output_file2="segment1_udp.bat"
+output_file2="subnets_segment1_udp.bat"
 
 # Header for the output file
 cat <<EOF > "$output_file2"
@@ -123,14 +123,14 @@ done < subnet.txt
 
 # Output the final result
 echo ""
-echo "Nmap scripts have been generated in $output_file2"
+echo "[+] Nmap scripts have been generated in $output_file2"
 
 sleep 5;
 
 
 echo "______________________________________________________________________________________"
 
-output_file3="segment1_udp.sh"
+output_file3="subnets_segment1_udp.sh"
 
 # Header for the output file
 cat <<EOF > "$output_file3"
@@ -160,7 +160,24 @@ done < subnet.txt
 
 # Output the final result
 echo ""
-echo "Nmap scripts have been generated in $output_file3"
+echo "[+] Nmap scripts have been generated in $output_file3"
 echo ""
-echo "Segmentation PT Scripts are ready"
+echo "[+] Subnets Segmentation PT Scripts are ready to use"
+echo "______________________________________________________________________________________"
+echo ""
+echo "[+] Generating Final Segmentation Script"
+sleep 10;
+python2 tcp-1.py 2>/dev/null
+python2 tcp-2.py 2>/dev/null
+python2 udp-1.py 2>/dev/null
+python2 udp-2.py 2>/dev/null
+echo ""
+echo "[+] Using dos2unix tool on linux scripts"
+dos2unix final_segment1_tcp.sh
+dos2unix final_segment1_udp.sh
+echo "______________________________________________________________________________________"
+echo ""
+echo "[+] The final PT scripts for segmentation have been generated. check the Final_<File_Name> results."
+echo ""
+echo "[+]  Thanks for using this script."
 
