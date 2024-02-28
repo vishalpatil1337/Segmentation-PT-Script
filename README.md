@@ -14,4 +14,5 @@ nano subnet.txt                                # Enter Out of Scope Subnets
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/82cc7c43-9fb3-414d-adfe-ad1b94487bf2)
 
 Examine the outcome at the end. Subnets_segment1_* can be used to manually create several portions. The final output of our scripts will be final_segment1_*.
+
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/3f2e9a78-ae1d-4790-b66b-1ca8dd8d1d40)
