@@ -172,13 +172,39 @@ python2 tcp-2.py 2>/dev/null
 python2 udp-1.py 2>/dev/null
 python2 udp-2.py 2>/dev/null
 echo ""
+echo "______________________________________________________________________________________"
+echo ""
+echo "Do you want NMAP output in split parts? (y/n)"
+read choice
+
+if [[ $choice == "y" || $choice == "Y" ]]; then
+    # Run parts-subnet.sh script
+    ./parts-subnet.sh
+else
+    # Keep the script as it is
+    echo "Keeping the script as it is."
+fi
+
+
 echo "[+] Using dos2unix tool on linux scripts"
 dos2unix final_segment1_tcp.sh
 dos2unix final_segment1_udp.sh
 echo "______________________________________________________________________________________"
 echo ""
 echo "[+] The final PT scripts for segmentation have been generated. check the Final_<File_Name> results."
-ls | grep final_segment1_ 
+ls | grep final_segment1_
+
+mkdir All-in-One-Segmentation-PT-Script
+mkdir -p All-in-One-Segmentation-PT-Script/windows/TCP
+mkdir -p All-in-One-Segmentation-PT-Script/windows/UDP
+mkdir -p All-in-One-Segmentation-PT-Script/linux/TCP
+mkdir -p All-in-One-Segmentation-PT-Script/linux/UDP
+
+mv final_segment1_tcp.bat All-in-One-Segmentation-PT-Script/windows/TCP
+mv final_segment1_udp.bat All-in-One-Segmentation-PT-Script/windows/UDP
+mv final_segment1_tcp.sh All-in-One-Segmentation-PT-Script/linux/TCP
+mv final_segment1_udp.sh All-in-One-Segmentation-PT-Script/linux/UDP
+
 echo ""
 echo "[+]  Thanks for using this script."
 
