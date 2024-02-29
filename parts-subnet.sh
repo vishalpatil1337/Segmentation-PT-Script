@@ -19,7 +19,8 @@ cd Segmentation-PT-Partitions/windows/TCP
 cd ../../../
 cp subnet-tcp1.py Segmentation-PT-Partitions/windows/TCP/subnets_segment1
 cd Segmentation-PT-Partitions/windows/TCP/subnets_segment1
-python subnet-tcp1.py 
+python subnet-tcp1.py
+rm partition* subnet*
 cd ../../../../
 
 
