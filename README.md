@@ -1,10 +1,11 @@
 # Segmentation-PT-Script
 Create a file called subnet.txt and include all of the subnets in it. Then, run the SegPT-Script.sh script.
 ```
+sudo apt install python-is-python3
 git clone https://github.com/vishalpatil1337/Segmentation-PT-Script.git
 cd Segmentation-PT-Script
 chmod +x *
-nano subnet.txt                                # Enter Out of Scope Subnets
+nano subnet.txt                                # Enter CDE Subnets
 ./SegPT-Script.sh subnet.txt
 ```
 
