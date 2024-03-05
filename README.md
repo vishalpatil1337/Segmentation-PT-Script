@@ -14,6 +14,9 @@ nano subnet.txt                                # Enter CDE Subnets
 
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/82cc7c43-9fb3-414d-adfe-ad1b94487bf2)
 
+![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/61ceac53-a4b9-477a-80bd-621e099ba747)
+
+
 Examine the outcome at the end. Subnets_segment1_* can be used to manually create several portions. The final output of our scripts will be final_segment1_*.
 
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/9ba328d0-37ab-4800-9551-c9eb201c3413)
