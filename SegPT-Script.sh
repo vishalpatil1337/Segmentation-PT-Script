@@ -14,9 +14,9 @@ remove_suffix() {
     echo "${1%/*}"
 }
 
-# Prompt user if they want to remove -p- and -v options for fast scan
+# Prompt user if they want to remove -p- option for fast scan
 echo ""
-read -p "Do you want to remove -p- and -v options for fast scan? (y/n): " remove_options
+read -p "Do you want to remove -p- option for fast scan? (y/n): " remove_options
 
 # Read subnet information from subnet.txt file
 while IFS= read -r subnet_ip; do
@@ -29,7 +29,7 @@ while IFS= read -r subnet_ip; do
     # Write Nmap script to output file
     if [ "$remove_options" == "y" ]; then
         cat <<EOF >> "$output_file"
-nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -oA  $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA  $output_filename $(remove_suffix) $subnet_ip
 EOF
     else
         cat <<EOF >> "$output_file"
@@ -61,7 +61,7 @@ remove_suffix() {
 
 # Prompt user if they want to remove -p- and -v options for fast scan
 echo ""
-read -p "Do you want to remove -p- and -v options for fast scan? (y/n): " remove_options
+read -p "Do you want to remove -p- option for fast scan? (y/n): " remove_options
 
 
 # Read subnet information from subnet.txt file
@@ -75,7 +75,7 @@ while IFS= read -r subnet_ip; do
     # Write Nmap script to output file
     if [ "$remove_options" == "y" ]; then
         cat <<EOF >> "$output_file1"
-nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -oA $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA $output_filename $(remove_suffix) $subnet_ip
 EOF
     else
         cat <<EOF >> "$output_file1"
