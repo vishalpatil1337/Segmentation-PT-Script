@@ -12,7 +12,8 @@ nano subnet.txt                                # Enter CDE Subnets
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/63959c58-11b6-4974-be30-2e4d06866b8d)
 
 
-![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/82cc7c43-9fb3-414d-adfe-ad1b94487bf2)
+![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/732ea157-127f-4122-82c8-e0e865c4559f)
+
 
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/61ceac53-a4b9-477a-80bd-621e099ba747)
 
