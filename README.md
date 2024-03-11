@@ -9,7 +9,7 @@ nano subnet.txt                                # Enter CDE Subnets
 ./SegPT-Script.sh subnet.txt
 ```
 
-![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/effcdc45-ebbb-4731-a8ea-a3fdf9429038)
+![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/63959c58-11b6-4974-be30-2e4d06866b8d)
 
 
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/82cc7c43-9fb3-414d-adfe-ad1b94487bf2)
