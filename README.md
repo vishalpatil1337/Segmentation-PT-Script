@@ -14,7 +14,7 @@ nano subnet.txt                                # Enter CDE Subnets
 
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/732ea157-127f-4122-82c8-e0e865c4559f)
 
-
+# Create Segmentation PT NMAP Script in Split Parts
 ![image](https://github.com/vishalpatil1337/Segmentation-PT-Script/assets/30390447/61ceac53-a4b9-477a-80bd-621e099ba747)
 
 
