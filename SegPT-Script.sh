@@ -29,11 +29,11 @@ while IFS= read -r subnet_ip; do
     # Write Nmap script to output file
     if [ "$remove_options" == "y" ]; then
         cat <<EOF >> "$output_file"
-nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA  $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA  TCP_$output_filename $(remove_suffix) $subnet_ip
 EOF
     else
         cat <<EOF >> "$output_file"
-nmap -n -Pn -sS -p- --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA  $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sS -p- --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA  TCP_$output_filename $(remove_suffix) $subnet_ip
 EOF
     fi
 
@@ -75,11 +75,11 @@ while IFS= read -r subnet_ip; do
     # Write Nmap script to output file
     if [ "$remove_options" == "y" ]; then
         cat <<EOF >> "$output_file1"
-nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sS --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA TCP_$output_filename $(remove_suffix) $subnet_ip
 EOF
     else
         cat <<EOF >> "$output_file1"
-nmap -n -Pn -sS -p- --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sS -p- --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --defeat-rst-ratelimit --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA TCP_$output_filename $(remove_suffix) $subnet_ip
 EOF
     fi
 
@@ -116,7 +116,7 @@ while IFS= read -r subnet_ip; do
     
     # Write Nmap script to output file
     cat <<EOF >> "$output_file2"
-nmap -n -Pn -sU -p U:7,9,11,13,17,19,37,53,67-69,88,111,123,135,137-139,161-162,177,213,259-260,445,464,500,514,520,523,623,631,749-751,1194,1434,1701,1812-1813,1900,2049,2746,3230-3235,3401,4045,4500,4665-4666,4672,5059-5061,5351,5353,5632,6429,7777,9100-9102,11211,17185,18233,23945,26000-26004,26198,27015-27030,27444,27960-27964,30720-30724,31337,32771,34555,44400,47545,49152,54321 --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sU -p U:7,9,11,13,17,19,37,53,67-69,88,111,123,135,137-139,161-162,177,213,259-260,445,464,500,514,520,523,623,631,749-751,1194,1434,1701,1812-1813,1900,2049,2746,3230-3235,3401,4045,4500,4665-4666,4672,5059-5061,5351,5353,5632,6429,7777,9100-9102,11211,17185,18233,23945,26000-26004,26198,27015-27030,27444,27960-27964,30720-30724,31337,32771,34555,44400,47545,49152,54321 --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA UDP_$output_filename $(remove_suffix) $subnet_ip
 EOF
 
 done < subnet.txt
@@ -153,7 +153,7 @@ while IFS= read -r subnet_ip; do
     
     # Write Nmap script to output file
     cat <<EOF >> "$output_file3"
-nmap -n -Pn -sU -p U:7,9,11,13,17,19,37,53,67-69,88,111,123,135,137-139,161-162,177,213,259-260,445,464,500,514,520,523,623,631,749-751,1194,1434,1701,1812-1813,1900,2049,2746,3230-3235,3401,4045,4500,4665-4666,4672,5059-5061,5351,5353,5632,6429,7777,9100-9102,11211,17185,18233,23945,26000-26004,26198,27015-27030,27444,27960-27964,30720-30724,31337,32771,34555,44400,47545,49152,54321 --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA $output_filename $(remove_suffix) $subnet_ip
+nmap -n -Pn -sU -p U:7,9,11,13,17,19,37,53,67-69,88,111,123,135,137-139,161-162,177,213,259-260,445,464,500,514,520,523,623,631,749-751,1194,1434,1701,1812-1813,1900,2049,2746,3230-3235,3401,4045,4500,4665-4666,4672,5059-5061,5351,5353,5632,6429,7777,9100-9102,11211,17185,18233,23945,26000-26004,26198,27015-27030,27444,27960-27964,30720-30724,31337,32771,34555,44400,47545,49152,54321 --max-retries 1 --min-rtt-timeout 500ms --max-rtt-timeout 3000ms --initial-rtt-timeout 500ms --min-rate 450 --max-rate 5000 --disable-arp-ping -v -oA UDP_$output_filename $(remove_suffix) $subnet_ip
 EOF
 
 done < subnet.txt
@@ -207,4 +207,3 @@ mv final_segment1_udp.sh All-in-One-Segmentation-PT-Script/linux/UDP
 
 echo ""
 echo "[+]  Thanks for using this script."
-
