@@ -206,4 +206,12 @@ mv final_segment1_tcp.sh All-in-One-Segmentation-PT-Script/linux/TCP
 mv final_segment1_udp.sh All-in-One-Segmentation-PT-Script/linux/UDP
 
 echo ""
+echo "Removing Unnecessary Scripts from Partition Directory"
+# Removal of unnecessary scripts
+
+python partition-script.py
+echo ""
+
+
+
 echo "[+]  Thanks for using this script."
