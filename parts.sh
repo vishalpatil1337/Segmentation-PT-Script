@@ -36,14 +36,14 @@ commands_per_partition=$(( (num_commands + num_partitions - 1) / num_partitions 
 # Divide the Nmap commands into partitions
 for ((i = 0; i < num_partitions; i++)); do
     start=$((i * commands_per_partition))
-    end=$((start + commands_per_partition - 1))
+    end=$((start + commands_per_partition))
     
-    # Create partition file
-    partition_file="${output_directory}/partition_${i}_${script_file}"
+    # Create partition file, starting partition numbers from 1
+    partition_file="${output_directory}/partition_$((i + 1))_${script_file}"
     touch "$partition_file"
     
     # Loop over commands and append to partition file
-    for ((j = start; j <= end && j < num_commands; j++)); do
+    for ((j = start; j < end && j < num_commands; j++)); do
         echo "${nmap_commands[j]}" >> "$partition_file"
     done
 done
